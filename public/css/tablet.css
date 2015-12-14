@@ -1,0 +1,102 @@
+body
+{
+	font-size: 12pt;
+}
+div#header
+{
+	height: 80px;
+}
+div#topcontent
+{
+	width: 100%;
+	position: absolute;
+	/*background-color: #F00;*/
+	max-height: 80px;
+}
+
+div#logo
+{
+	text-decoration: none;
+	font-size: 24px;
+	position: relative;
+	float: left;
+	display: block;
+	top: 0px;
+	left: 60px;
+	bottom: 0px;
+	line-height: 80px;
+	font-style: oblique;
+	font-weight: 300;
+	font-variant: inherit;
+	padding-right: 20px;
+}
+div#nav
+{
+	display: none;
+}
+div#login
+{
+	display: none;
+}
+div#nav ul li
+{	
+	list-style: none;
+	float: left;
+	margin-right: 20px;
+	margin-left: 20px;
+	color: #EEE;
+}
+div#nav ul li login
+{
+	
+}
+div#hamburger
+{
+	position: relative;
+	float: right;
+	display: block;
+	right: 60px;
+}
+div#content	
+{
+	width: 100%;
+	position: absolute;
+	margin-top: 80px;
+	padding-bottom: 30px;
+	/*background-color: #F00;*/
+	min-height: 60px;
+	line-height: 1.5;
+	font-size: 12pt;
+}
+div#content p, div#content h1, div#content h2,  div#content h3, div#content img, div#content a
+{
+	margin-right: 30px;
+	margin-left: 30px;
+}
+
+div#content h1
+{
+	font-size: 25pt;
+	font-variant: small-caps;
+	font-weight: bolder;
+	color: #111;
+	margin-top: 20px;
+	margin-bottom: 15px;
+}
+
+div#content h2
+{
+	font-size: 20pt;
+	font-variant: small-caps;
+	font-weight: bold;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+div#content h3
+{
+	font-size: 18pt;
+	font-variant: small-caps;
+	margin-top: 10px;
+	margin-bottom: 5px;
+}

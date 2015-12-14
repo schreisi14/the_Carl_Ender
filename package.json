@@ -1,0 +1,29 @@
+{
+  "name": "the_carl_ender",
+  "version": "1.0.0",
+  "description": "Carl-Ender Web-Version",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/schreisi14/the_Carl_Ender.git"
+  },
+  "keywords": [
+    "carl-ender",
+    "carl",
+    "ender",
+    "kalender"
+  ],
+  "author": "SSH",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/schreisi14/the_Carl_Ender/issues"
+  },
+  "homepage": "https://github.com/schreisi14/the_Carl_Ender#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}

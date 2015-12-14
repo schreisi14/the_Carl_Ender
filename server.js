@@ -1,6 +1,15 @@
-#!/usr/bin/node
-var http = require('http');
-http.createServer(function (req, res) {
- res.writeHead(200, {'Content-Type': 'text/html'});
- res.end('<html><head><title>First Test</title></head><body><h1>The Carl-Ender</h1></body></html>');
-}).listen(8000, '127.0.0.1');
+#!/usr/bin/env node
+
+
+var express = require('express');
+var app = express();
+
+app.use(express.static('public'));
+
+
+var server = app.listen(8000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+
+  console.log('Example app listening at http://%s:%s', host, port);
+});

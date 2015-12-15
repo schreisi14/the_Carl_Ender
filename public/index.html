@@ -5,21 +5,27 @@
 	<link rel="stylesheet" type="text/css" href="layout.css">
 </head>
 <body>
-	<h1>CARL-ENDER</h1>
-	<div>
-		<form action="/login" method="post">
-			<div>
-				<label>Username:</label>
-				<input type="text" name="username"/>
-			</div>
-			<div>
-				<label>Password:</label>
-				<input type="password" name="password"/>
-			</div>
-			<div>
-				<input type="submit" value="Log In"/>
-			</div>
-		</form>
+	<div id="wrapper">
+		<h1>CARL-ENDER</h1>
+		<div id="logo">
+		<img src="img/ico/android-icon-192x192.png" id="logoimg">
+		</div>
+		<div id="loginform">
+			<form action="/login" method="post">
+				<div>
+					<label>Username:</label>
+					<input type="text" name="username"/>
+				</div>
+				<div>
+					<label>Password:</label>
+					<input type="password" name="password"/>
+				</div>
+				<div>
+					<input type="submit" value="Log In"/>
+				</div>
+			</form>
+			<p>any user/pass work</p>
+		</div>
 	</div>
 </body>
 </html>

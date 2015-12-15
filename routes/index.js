@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.post('/login', function(req,res){
 	//TODO - LOGIN
-	res.redirect('content/carl.html');
+	res.redirect('content/index.html');
 	res.end("Login");
 });
 

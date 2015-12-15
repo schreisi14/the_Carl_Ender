@@ -13,3 +13,9 @@
 * Simon Schrei
 * Stefan Reip
 * Helmuth Weithaler
+
+#TODO
+- Impl. useful Auth-Strategy
+- incl. a DB 
+- create dynamic Content
+- Design-Stuff

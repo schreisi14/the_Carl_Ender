@@ -1,18 +1,16 @@
 //Login-Strategy
 
+//TODO: Implement a useful Strategy
+
 var LocalStrategy = require('passport-local').Strategy;
 
 module.exports = new LocalStrategy(
   function(username, password, done) {
-    User.findOne({ username: username }, function(err, user) {
-      if (err) { return done(err); }
-      if (!user) {
-        return done(null, false, { message: 'Incorrect username.' });
-      }
-      if (!user.validPassword(password)) {
-        return done(null, false, { message: 'Incorrect password.' });
-      }
-      return done(null, user);
-    });
-  }
-);
+    console.log("DEBUG::" + username + "::" + password);
+
+    if (username == password){
+      return done(null,{id: 1, username: 'heli'});
+    } else {
+      return done(null, false, {message: 'Incorret User/Pass'});
+    }
+});

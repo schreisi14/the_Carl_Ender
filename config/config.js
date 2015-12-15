@@ -3,5 +3,6 @@
 module.exports = {
 	'appname':'CarlEnder',
 	'author':'Schrei,Reip,Weithaler',
-	'port':8000
+	'port':8000,
+	'secret':'carlender'
 };

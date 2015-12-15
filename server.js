@@ -17,7 +17,7 @@ app.use(cookieParser());
 app.use(cookie);
 app.use(bodyParser());
 app.use(require('express-session')({    //Is required by Passport -> creates & sets a Session
-    name: 'carlEnderSessionId',                //Name of the Session-Cookie
+    name: 'carlEnderSessionId',         //Name of the Session-Cookie
     cookie: { path: '/', httpOnly: true, secure: false, maxAge: 900000 },
     secret: conf.secret,                //Uses the secret to create the hash for the Session-id
     resave: false,                      //Prevent a Session to be saved back to the Session-Store

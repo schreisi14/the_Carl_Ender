@@ -1,44 +1,38 @@
 #!/usr/bin/env node
-//Test
+
+//Config File
+var conf = require('./config/config.js');
 //Express
 var express = require('express');
 var app = express();
+var routes = require('./routes/index.js');
+var passport = require('passport');
+var localstrategy = require('./passport/localstrategy.js');
+passport.use(localstrategy);
 
-//CookieParser - Middleware for Express
+//Cookies
 var cookieParser = require('cookie-parser');
 
-
-//Express-Middleware
+//MiddleWare
 app.use(cookieParser());
+app.use(passport.initialize());
+//TODO: PASSPORT
+
 
 // Sets a cookie
-app.use(function (req, res, next) {
-  // checks if client sent a cookie
-  var cookie = req.cookies.cookieName;
-  if (cookie === undefined)
-  {
-    // no: set a new cookie
-    var randomNumber=Math.random().toString();
-    randomNumber=randomNumber.substring(2,randomNumber.length);
-    res.cookie('CarlEnderCookieNr',randomNumber, { maxAge: 900000, httpOnly: true });
-    console.log('cookie created successfully');
-  } 
-  else
-  {
-    // yes, cookie was already present 
-    console.log('cookie exists', cookie);
-  } 
-  next(); // <-- important! -> continue with express.static('public')
-});
+var cookie = require('./helper/cookie.js');
+app.use(cookie);
+
+//Routes
+app.use('/', routes);
 
 
-//Standard File-Handling
-app.use(express.static('public'));
 
 
-var server = app.listen(8000, function () {
+//Server-Start
+var server = app.listen(conf.port, function () {
   var host = server.address().address;
   var port = server.address().port;
 
-  console.log('Example app listening at http://%s:%s', host, port);
+  console.log('%s by %s listening at http://%s:%s',conf.appname, conf.author, host, port);
 });

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="0; URL=content/index.html">
 	<title>CARL-ENDER</title>
 	<link rel="stylesheet" type="text/css" href="layout.css">
 </head>
 <body>
-<h1>CARL-ENDER</h1>
-	TESTSITE
-
+	<h1>CARL-ENDER</h1>
+	<div>
+		<form action="/login" method="post">
+			<div>
+				<label>Username:</label>
+				<input type="text" name="username"/>
+			</div>
+			<div>
+				<label>Password:</label>
+				<input type="password" name="password"/>
+			</div>
+			<div>
+				<input type="submit" value="Log In"/>
+			</div>
+		</form>
+	</div>
 </body>
 </html>

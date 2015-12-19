@@ -39,3 +39,7 @@ Thumbs.db
 #GitModules#
 #############
 node_modules/
+
+#TernFile
+#############
+.tern-project

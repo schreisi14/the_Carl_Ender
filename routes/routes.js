@@ -11,7 +11,7 @@ module.exports = function(app, passport) {
 
 		//Routes the login
 		app.post('/login',
-			 passport.authenticate('local', { 	successRedirect: '/content',
+			 passport.authenticate('local-login', { 	successRedirect: '/content',
 		                                   		failureRedirect: '/',
 		                                   		failureFlash: true
 		                                   	}));
@@ -26,6 +26,12 @@ module.exports = function(app, passport) {
 		app.get('/signup', function(req,res){
 			res.render('signup');
 		});
+
+		app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect : '/content', // redirect to the secure profile section
+        failureRedirect : '/signup', // redirect back to the signup page if there is an error
+        //failureFlash : true // allow flash messages
+    }));
 
 
 		//Function to check if the use is authenticated to access the route

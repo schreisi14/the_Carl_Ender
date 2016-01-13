@@ -10,6 +10,14 @@ var flash = require('connect-flash');                       //Is required by Pas
 var bodyParser = require('body-parser');                    //Is required by Passport -> parses POST-Body
 var cookieParser = require('cookie-parser');                //Parse Cookie Header and populate req.cookies with an object keyed by the cookie names
 var exphbs  = require('express-handlebars');                //View Engine Handlebars
+var mongoose = require('mongoose');                         //DB-Handler
+
+
+//DB-Config
+mongoose.connect(conf.url);           //Loads the URL from the DB from the Config
+
+//Passport-Config
+require('./passport/ppconf.js')(passport); //Loads the configuration for Passport
 
 //MiddleWare -> Can execute any code, make changes to the req/resp, end the req,res cycle, call next middleware
 app.use(cookieParser());
@@ -21,25 +29,18 @@ app.use(require('express-session')({    //Is required by Passport -> creates & s
     resave: false,                      //Prevent a Session to be saved back to the Session-Store
     saveUninitialized: false            //Prevent a Session that is "uninitialized" to be saved to the Session-Store
 }));
-app.use(passport.initialize());         //Is required by Passport
-app.use(passport.session());            //Is required by Passport
+app.use(passport.initialize());         //Initialize Passport
+app.use(passport.session());            //Starts a passport-session
 app.use(flash());
 
+//Set View Engine / View Render
 app.engine('.hbs', exphbs({extname: '.hbs'}));  //Register Handlebars as Renderengine
 app.set('view engine', '.hbs');                 //.hbs Files in the views folger are now rendered with Handlebars
 
-//ROUTE
+//ROUTES
 app.use(express.static(__dirname + '/public')); //Serves every static file in the public folder
 require('./routes/routes.js')(app, passport);   //Manages our routing
 
-//Passport-Settings                             //TODO - Logic is ATM USER==PASS
-passport.use(localstrategy);                    //Logic when Auth is correct
-passport.serializeUser(function(user, done) {   //Determines what data from the User-Object should be stored in the Session
-  done(null, user.id);
-});
-passport.deserializeUser(function(id, done) {   //Gets the User ID from the Session
-    done(null, 'heli');
-});
 
 //Server-Start
 var server = app.listen(conf.port, function () {

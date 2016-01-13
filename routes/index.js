@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 
+
 //Rout to Login
 router.post('/login',
 	 passport.authenticate('local', { 	successRedirect: '/content',
@@ -21,10 +22,12 @@ router.all('/logout',function(req,res){
 	res.end("Logout");
 });
 
-router.all('/content', isLoggedIn,express.static('views/'));
-//Route for everthing else
-router.all('*', express.static('public/'));
+//Route to the content, with auth checked
+router.all('/content', isLoggedIn, express.static('views'));
 
+
+
+//Function to check if the use is authenticated to access the route
 function isLoggedIn(req, res, next) {
 
     // if user is authenticated in the session, carry on

@@ -28,6 +28,7 @@ app.use(passport.session());            //Is required by Passport
 app.use(flash());
 
 //ROUTE                       //Is required by Passport
+app.use(express.static(__dirname + '/public'));
 app.use('/', routes);                   //Should be last, so every middleware gets called
 
 //Passport-Settings                             //TODO - Logic is ATM USER==PASS

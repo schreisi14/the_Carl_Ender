@@ -16,6 +16,6 @@
 
 #TODO
 - Impl. useful Auth-Strategy
-- incl. a DB 
-- create dynamic Content
-- Design-Stuff
+- incl. a DB
+- create dynamic Content (Render is implementet -> create Layouts + something to fill them)
+- Design-Stuff (Logout Button? -> atm: profile-button)

@@ -18,8 +18,8 @@ module.exports = function(app, passport) {
 
 		//Route to Logout - Unused atm
 		app.get('/logout',function(req,res){
-			//TODO - LOGOUT
-			res.end("Logout");
+  		req.logout();
+  		res.redirect('/');
 		});
 
 

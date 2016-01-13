@@ -24,7 +24,7 @@ module.exports = function(app, passport) {
 
 
 		app.get('/signup', function(req,res){
-			res.end("Signup");
+			res.render('signup');
 		});
 
 

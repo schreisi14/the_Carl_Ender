@@ -4,18 +4,15 @@
 var conf = require('./config/config.js');                   //Config File
 var express = require('express');                           //Express-Framework
 var app = express();                                        //Init Express
-//var routes = require('./routes/index.js');                  //Manages the Routing
 var passport = require('passport');                         //Manages auth
 var localstrategy = require('./passport/localstrategy.js'); //Manages auth-process
 var flash = require('connect-flash');                       //Is required by Passport -> handles flash-messages
 var bodyParser = require('body-parser');                    //Is required by Passport -> parses POST-Body
 var cookieParser = require('cookie-parser');                //Parse Cookie Header and populate req.cookies with an object keyed by the cookie names
-var cookie = require('./helper/cookie.js');                 //Sets a Cookie when the Website is visited
-var exphbs  = require('express-handlebars');
+var exphbs  = require('express-handlebars');                //View Engine Handlebars
 
 //MiddleWare -> Can execute any code, make changes to the req/resp, end the req,res cycle, call next middleware
 app.use(cookieParser());
-app.use(cookie);
 app.use(bodyParser());
 app.use(require('express-session')({    //Is required by Passport -> creates & sets a Session
     name: 'carlEnderSessionId',         //Name of the Session-Cookie
@@ -28,13 +25,12 @@ app.use(passport.initialize());         //Is required by Passport
 app.use(passport.session());            //Is required by Passport
 app.use(flash());
 
-app.engine('.hbs', exphbs({extname: '.hbs'}));
-app.set('view engine', '.hbs');
+app.engine('.hbs', exphbs({extname: '.hbs'}));  //Register Handlebars as Renderengine
+app.set('view engine', '.hbs');                 //.hbs Files in the views folger are now rendered with Handlebars
 
-//ROUTE                       //Is required by Passport
-app.use(express.static(__dirname + '/public'));
-//app.use('/', routes);                   //Should be last, so every middleware gets called
-require('./routes/routes.js')(app, passport);
+//ROUTE
+app.use(express.static(__dirname + '/public')); //Serves every static file in the public folder
+require('./routes/routes.js')(app, passport);   //Manages our routing
 
 //Passport-Settings                             //TODO - Logic is ATM USER==PASS
 passport.use(localstrategy);                    //Logic when Auth is correct

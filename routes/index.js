@@ -22,6 +22,10 @@ router.all('/logout',function(req,res){
 	res.end("Logout");
 });
 
+router.all('/signup', function(req,res){
+	res.end("Signup");
+});
+
 //Route to the content, with auth checked
 router.all('/content', isLoggedIn, express.static('views'));
 

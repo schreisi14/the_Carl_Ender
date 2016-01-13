@@ -25,7 +25,9 @@ app.use(require('express-session')({    //Is required by Passport -> creates & s
 }));
 app.use(passport.initialize());         //Is required by Passport
 app.use(passport.session());            //Is required by Passport
-app.use(flash());                       //Is required by Passport
+app.use(flash());
+
+//ROUTE                       //Is required by Passport
 app.use('/', routes);                   //Should be last, so every middleware gets called
 
 //Passport-Settings                             //TODO - Logic is ATM USER==PASS
@@ -38,7 +40,7 @@ passport.deserializeUser(function(id, done) {   //Gets the User ID from the Sess
 });
 
 //Server-Start
-var server = app.listen(conf.port, function () { 
+var server = app.listen(conf.port, function () {
   var host = server.address().address;
   var port = server.address().port;
 

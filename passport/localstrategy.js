@@ -6,7 +6,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 module.exports = new LocalStrategy(
   function(username, password, done) {
-    console.log("DEBUG::" + username + "::" + password);
+    console.log("DEBUG:: User:" + username + ":: Pass:" + password);
 
     if (username == password){
       return done(null,{id: 1, username: 'heli'});

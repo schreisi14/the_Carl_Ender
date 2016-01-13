@@ -3,10 +3,10 @@ var router = express.Router();
 var passport = require('passport');
 
 //Rout to Login
-router.post('/login', 
-	 passport.authenticate('local', { 	successRedirect: 'content/index.html',
+router.post('/login',
+	 passport.authenticate('local', { 	successRedirect: '/content',
                                    		failureRedirect: '/login',
-                                   		failureFlash: true 
+                                   		failureFlash: true
                                    	}));
 
 //Rout when LoginFails
@@ -21,8 +21,18 @@ router.all('/logout',function(req,res){
 	res.end("Logout");
 });
 
+router.all('/content', isLoggedIn,express.static('views/'));
 //Route for everthing else
 router.all('*', express.static('public/'));
 
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/');
+}
 
 module.exports = router;

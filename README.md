@@ -6,7 +6,7 @@
 #Install
 1. clone repo
 2. npm install
-3. start your MongoDB-Server
+3. start your MongoDB-Server, the App will create an DBs named thecarlender
 4. npm start
 5. realize it's an alpha and doesn't work at the moment ;)
 

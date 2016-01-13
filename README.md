@@ -6,8 +6,9 @@
 #Install
 1. clone repo
 2. npm install
-3. npm start
-4. realize it's an alpha and doesn't work at the moment ;)
+3. start your MongoDB-Server
+4. npm start
+5. realize it's an alpha and doesn't work at the moment ;)
 
 # Team
 * Simon Schrei
@@ -15,7 +16,7 @@
 * Helmuth Weithaler
 
 #TODO
-- Impl. useful Auth-Strategy
-- incl. a DB
+- Implement mailer with token
+- Implement SignIn with token -> model/user.js & passport/ppconf.js
 - create dynamic Content (Render is implementet -> create Layouts + something to fill them)
 - Design-Stuff (Logout Button? -> atm: profile-button)

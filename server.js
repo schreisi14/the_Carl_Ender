@@ -5,7 +5,6 @@ var conf = require('./config/config.js');                   //Config File
 var express = require('express');                           //Express-Framework
 var app = express();                                        //Init Express
 var passport = require('passport');                         //Manages auth
-var localstrategy = require('./passport/localstrategy.js'); //Manages auth-process
 var flash = require('connect-flash');                       //Is required by Passport -> handles flash-messages
 var bodyParser = require('body-parser');                    //Is required by Passport -> parses POST-Body
 var cookieParser = require('cookie-parser');                //Parse Cookie Header and populate req.cookies with an object keyed by the cookie names

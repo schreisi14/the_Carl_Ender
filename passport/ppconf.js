@@ -67,6 +67,34 @@ module.exports = function(passport) {
           newUser.local.token    = newUser.generateToken(email);
           console.log(req.protocol + '://' + req.get('host') + '/verify?id=' + newUser.local.token + '&email=' + newUser.local.email);
 
+          //=====================================
+          //Nodemailer ==========================
+          //=====================================
+          // var nodemailer = require('nodemailer');
+          //
+          // var transporter = nodemailer.createTransport({
+          //   host: 'mail.fh-joanneum.at',
+          //   port: 25,
+          // });
+          //
+          // transporter.sendMail({
+          //   from: 'carlender@edu.fh-joanneum,at',
+          //   to: '<YOUR EMAIL>',
+          //   subject: 'Carl-Ender - Please Confirm your account!',
+          //   text: 'Please Verify your account!',
+          //   html: '<a href="'+ req.protocol + '://' + req.get('host') + '/verify?id=' + newUser.local.token + '&email=' + newUser.local.email + '">Klick to verify</a>',
+          //
+          // }, function(err,info){
+          //   if(err){
+          //     console.log("ERROR:: " + err);
+          //   } else {
+          //     console.log("INFO:: " + info);
+          //   }
+          // });
+          //=================================
+
+
+
           // save the user
           newUser.save(function(err) {
             if (err)

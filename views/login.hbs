@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>CARL-ENDER</title>
+	<title>CARL-ENDER - Log In</title>
 	<link rel="icon" type="image/png" sizes="32x32" href="img/ico/favicon-32x32.png">
 	<link rel="stylesheet" type="text/css" href="/layout.css">
 </head>
@@ -14,19 +14,17 @@
 		<div id="loginform">
 			<form action="/login" method="post">
 				<div>
-					<label>Username:</label>
-					<input type="email" name="email" />
+					<!-- <label>Username:</label> -->
+					<input type="email" name="email" placeholder="email"/>
 				</div>
 				<div>
-					<label>Password:</label>
-					<input type="password" name="password"/>
+					<!-- <label>Password:</label> -->
+					<input type="password" name="password" placeholder="password"/>
 				</div>
 				<div>
 					<input type="submit" value="Log In"/>
 				</div>
 			</form>
-			<p>To LogIn:</p>
-			<p>user == password</p>
 			<p>
 				<a href="/signup">sign up!</a>
 			</p>

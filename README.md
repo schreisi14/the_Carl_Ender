@@ -28,6 +28,5 @@
 * Helmuth Weithaler
 
 #TODO
-- SignUp ... add second password field
 - create dynamic Content (Render is implementet -> create Layouts + something to fill them)
 - Design-Stuff (Logout Button? -> atm: profile-button)

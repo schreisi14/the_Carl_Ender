@@ -4,6 +4,21 @@
 	<title>CARL-ENDER - Sign Up</title>
 	<link rel="icon" type="image/png" sizes="32x32" href="img/ico/favicon-32x32.png">
 	<link rel="stylesheet" type="text/css" href="/layout.css">
+	<script type="text/javascript">
+	//Check if password equals confirm_password -> if, it enables the submit button
+	function check_pass(){
+		if (document.getElementById('password').value==document.getElementById('confirm_password').value){
+			document.getElementById('password').style.backgroundColor = "#66cc66";
+			document.getElementById('confirm_password').style.backgroundColor = "#66cc66";
+			document.getElementById('submit').disabled = false;
+		}
+		else {
+			document.getElementById('password').style.backgroundColor = "#ff6666";
+			document.getElementById('confirm_password').style.backgroundColor = "#ff6666";
+			document.getElementById('submit').disabled = true;
+		}
+	}
+	</script>
 </head>
 <body>
 	<div id="wrapper">
@@ -19,10 +34,14 @@
 				</div>
 				<div>
 					<!-- <label>Password:</label> -->
-					<input type="password" name="password" placeholder="password"/>
+					<input type="password" name="password" placeholder="password" id="password" onkeyup="check_pass()"/>
 				</div>
 				<div>
-					<input type="submit" value="Sign Up"/>
+					<!-- <label>Password:</label> -->
+					<input type="password" name="confirm_password" placeholder="confirm password" id="confirm_password" onkeyup="check_pass()"/>
+				</div>
+				<div>
+					<input type="submit" value="Sign Up" id="submit"/>
 				</div>
 			</form>
 			<p>Already have an Account? <a href="/">LogIn</a></p>

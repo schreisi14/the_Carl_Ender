@@ -1,12 +1,8 @@
-// passport/ppconf.js
-
-// load all the things we need
+//Requirements
 var LocalStrategy = require('passport-local').Strategy;
-
-// load up the user model
 var User = require('../models/user');
 
-// expose this function to our app using module.exports
+//Export (takes the passport from the server.js)
 module.exports = function(passport) {
 
   // =========================================================================
@@ -64,8 +60,12 @@ module.exports = function(passport) {
           // set the user's local credentials
           newUser.local.email    = email;
           newUser.local.password = newUser.generateHash(password);
-          newUser.local.token    = newUser.generateToken(email);
+          newUser.local.token    = newUser.generateToken(email); //Generate a Token from the email .. good Idea?
+
+          //Console Output of the Verify-Link
+          //Creates and GET with params id and email
           console.log(req.protocol + '://' + req.get('host') + '/verify?id=' + newUser.local.token + '&email=' + newUser.local.email);
+
 
           //=====================================
           //Nodemailer ==========================
@@ -93,9 +93,7 @@ module.exports = function(passport) {
           // });
           //=================================
 
-
-
-          // save the user
+          // Save the user
           newUser.save(function(err) {
             if (err)
             throw err;

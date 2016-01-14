@@ -16,6 +16,7 @@
 * Helmuth Weithaler
 
 #TODO
+- SignUp ... add second password field
 - Implement mailer with token
 - Implement SignIn with token -> model/user.js & passport/ppconf.js
 - create dynamic Content (Render is implementet -> create Layouts + something to fill them)

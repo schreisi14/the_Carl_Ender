@@ -33,6 +33,25 @@ module.exports = function(app, passport) {
         //failureFlash : true // allow flash messages
     }));
 
+		app.get('/verify', function(req, res){
+			var tokentocheck = req.query.id;
+			var emailtocheck = req.query.email;
+			var User = require('../models/user');
+			User.findOne({'local.email' : emailtocheck}, function(err, user){
+					if(err){
+						res.end("Token not set")
+					}
+					if(user){
+						console.log('TOKEN:: ' + user.local.token);
+						res.end("YEAH");
+						user.local.token = 0;
+						user.save();
+
+						//User.update({'_id':})
+					}
+			});
+		});
+
 
 		//Function to check if the use is authenticated to access the route
 		function isLoggedIn(req, res, next) {

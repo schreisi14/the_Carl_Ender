@@ -2,7 +2,7 @@ module.exports = function(app, passport) {
 
 	//Route to the content, checks auth ,rendered with Handlebars
 	app.get('/content', isLoggedIn, function (req,res) {
-		res.render('index', {layout: false});
+		res.render('index', {layout: false, user: req.user.local.email});
 	});
 
 	//Route to the login page

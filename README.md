@@ -27,6 +27,10 @@
 
 #### The Token in the DB will be set to 0 if the confirm-link is visited
 
+#Testing
+- test/unittest.js -> open with node
+- test/testsuit.js -> open with nodeunit
+
 # Team
 * Simon Schrei
 * Stefan Reip

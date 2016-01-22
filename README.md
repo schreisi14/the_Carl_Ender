@@ -1,4 +1,4 @@
-# the_Carl_Ender v.0.0.1
+# the_Carl_Ender v.0.0.2
 - Project for DynWeb-ITM14-FHJ
 - ALPHA!!
 - Calender-Web-App to sync Events between multiple Users
@@ -37,5 +37,10 @@
 * Helmuth Weithaler
 
 #TODO
-- create dynamic Content (Render is implementet -> create Layouts + something to fill them)
+- Modify Dynamic Content (not each Field is filled)
+- Modify Dynmic Content (sort)
+- Modify Task-Schema
+- Modify Task-Schema-Methods (post->/create;get->/content)
+- Modify create.hbs
+- Modify SignUp -> Name
 - Design-Stuff (Logout Button? -> atm: profile-button)

@@ -2,8 +2,9 @@ module.exports = function(app, passport) {
 
 	//Route to the content, checks auth ,rendered with Handlebars
 	app.get('/content', isLoggedIn, function (req,res) {
+		//Get All Tasks from the User
 		var Task = require('../models/task');
-		Task.findOne({'local.user':req.user.local.email},function(err,task){
+		Task.find({'local.user':req.user.local.email},function(err,task){
 			if(err){
 				console.log(err);
 			}
@@ -14,37 +15,39 @@ module.exports = function(app, passport) {
 		});
 	});
 
+	//Render Task-Render-Site
 	app.get('/task', isLoggedIn, function(req,res){
 		res.render('create');
 	});
 
+	//Saves Task
 	app.post('/task',isLoggedIn, function(req,res){
 		var Task = require('../models/task');
-		console.log('User: '+req.user.local.email+'Name: '+ req.body.name);
-
+		//Check if Task is already insert
 		Task.findOne({'local.user':req.user.email, 'local.name':req.body.name},function(err,task){
 			if(err){
 				res.end("Error reading your tasks");
 			}
+			//If task doesn't exist
 			if(!task){
+				//Create new Task
 				var newTask = new Task();
-
+				//Sets its params
 				newTask.local.user = req.user.local.email;
 				newTask.local.name = req.body.name;
 				newTask.local.place = req.body.place;
 				newTask.local.text = req.body.text;
 
-
+				//Saves the new Task
 				newTask.save(function(err) {
 					if (err){
+						console.log('Error' + err);
 						throw err;
 					}
-					console.log('Redirect');
+					//Redirect to the content page
 					res.redirect('/content');
 				});
 			}
-
-			res.redirect('/content');
 	});
 });
 

@@ -26,64 +26,8 @@
 		<meta name="theme-color" content="#ffffff">
 	</head>
 	<body>
-		<div id="header">
-			<div id="topcontent">
-				<a href="#" >
-					<div id="logo">
-						<!--<h1>
-							Carl-Ender
-						</h1>-->
-						<img src="../img/logo_invert.png" alt="Carl-Ender">
-					</div>
-				</a>
-				<div id="nav">
-					<ul>
-						<li>
-							{{user}}
-						</li>
-						<a href="#">
-							<li>
-								<img src="../img/profile.png" alt="Profile" />
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								<img src="../img/notification.png" alt="Notifications" />
-							</li>
-						</a>
-						<a href="#">
-							<li>
-								<img src="../img/create.png" alt="Add new Event" />
-							</li>
-						</a>
-						<a href="/logout">
-							<li>
-								<img src="../img/logout.png" alt="Logout">
-							</li>
-						</a>
-					</ul>
-				</div>
-			</div>
-		</div>
+		{{>header}}
 		<div id="content">
-				<div id="container">
-				<div id="appt">
-					<h1>{{task.local.name}}</h1>
-					<h2>21.01.2016 - 17:00</h2>
-					<h2>{{task.local.place}}</h2>
-					<p>
-						{{task.local.text}}
-					</p>
-				</div>
-					<div id="accdec">
-						Zusagen: <br />
-						10
-					</div>
-					<div id="accdec">
-						Absagen: <br />
-						3
-					</div>
-				</div>
 			<div id="createtaks">
 				<form action="/task" method="post">
 					<div>

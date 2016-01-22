@@ -2,8 +2,51 @@ module.exports = function(app, passport) {
 
 	//Route to the content, checks auth ,rendered with Handlebars
 	app.get('/content', isLoggedIn, function (req,res) {
-		res.render('index', {layout: false, user: req.user.local.email});
+		var Task = require('../models/task');
+		Task.findOne({'local.user':req.user.local.email},function(err,task){
+			if(err){
+				console.log(err);
+			}
+			if(!task){
+				console.log('NO TAKS');
+			}
+			res.render('index', {layout: false, task: task});
+		});
 	});
+
+	app.get('/task', isLoggedIn, function(req,res){
+		res.render('create');
+	});
+
+	app.post('/task',isLoggedIn, function(req,res){
+		var Task = require('../models/task');
+		console.log('User: '+req.user.local.email+'Name: '+ req.body.name);
+
+		Task.findOne({'local.user':req.user.email, 'local.name':req.body.name},function(err,task){
+			if(err){
+				res.end("Error reading your tasks");
+			}
+			if(!task){
+				var newTask = new Task();
+
+				newTask.local.user = req.user.local.email;
+				newTask.local.name = req.body.name;
+				newTask.local.place = req.body.place;
+				newTask.local.text = req.body.text;
+
+
+				newTask.save(function(err) {
+					if (err){
+						throw err;
+					}
+					console.log('Redirect');
+					res.redirect('/content');
+				});
+			}
+
+			res.redirect('/content');
+	});
+});
 
 	//Route to the login page
 	app.get('/login', function (req,res) {

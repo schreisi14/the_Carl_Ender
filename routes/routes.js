@@ -22,6 +22,12 @@ module.exports = function(app, passport) {
 
 	//Saves Task
 	app.post('/task',isLoggedIn, function(req,res){
+		console.log(req.user.local.email);
+		console.log(req.body.name);
+		console.log(req.body.date);
+		console.log(req.body.time);
+		console.log( req.body.place);
+		console.log(req.body.text);
 		var Task = require('../models/task');
 		//Check if Task is already insert
 		Task.findOne({'local.user':req.user.email, 'local.name':req.body.name},function(err,task){
@@ -35,7 +41,16 @@ module.exports = function(app, passport) {
 				//Sets its params
 				newTask.local.user = req.user.local.email;
 				newTask.local.name = req.body.name;
+
+				if(req.body.date===""){
+					req.body.date = Date.now();
+				}
 				newTask.local.date = req.body.date;
+
+				if(req.body.time===""){
+					req.body.time = new Date().toLocaleTimeString();
+				}
+				console.log("Test: " + req.body.time);
 				newTask.local.time = req.body.time;
 				newTask.local.place = req.body.place;
 				newTask.local.text = req.body.text;

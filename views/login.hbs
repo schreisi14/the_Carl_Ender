@@ -8,8 +8,8 @@
   <title>Bootstrap 101 Template</title>
 
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css/extend.css">
+  <link href="/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/extend.css">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,11 +44,6 @@
             <form action="/login" method="post" class="form-horizontal">
 
                 <div class="input-group" id="ig">
-                  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                  <input type="text" name="name" placeholder="name" class="form-control"/>
-                </div>
-
-                <div class="input-group" id="ig">
                   <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                   <input type="email" name="email" placeholder="eMail" class="form-control"/>
                 </div>
@@ -60,6 +55,16 @@
                 <input type="submit" value="Log In" class="btn btn-md btn-primary btn-block btn-signin"/>
             </div>
           </form>
+					<div class="panel-footer">
+						<div class="text-right">
+								Not a Member yet? 
+
+							<div class="btn btn-default">
+								<a href="/signup">Sign Up</a>
+							</div>
+						</div>
+
+					</div>
         </div>
 
   </div>
@@ -68,6 +73,6 @@
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
-  <script src="js/bootstrap.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
 </body>
 </html>

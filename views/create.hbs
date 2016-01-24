@@ -71,7 +71,7 @@
             <h1 class="panel-title">Create Task</h1>
           </div>
           <div class="panel-body">
-            <form class="form-horizontal" action="#" method="post">
+            <form class="form-horizontal" action="/task" method="post" id="createtask">
               <div class="input-group" id="ig">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
                 <input type="text" name="name" value="name" class="form-control">
@@ -90,11 +90,11 @@
               </div>
               <div class="input-group" id="igt">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-                <textarea name="text "class="form-control" rows="4"></textarea>
+                <textarea name="text" class="form-control" rows="4" form="createtask">Your Text</textarea>
               </div>
               <div class="input-group pull-right">
                 <input type="button" name="cancel" value="Cancel" class="btn btn-danger btn-md" id="cb">
-                <input type="button" name="create" value="Create" class="btn btn-success btn-md" id="cb">
+                <input type="submit" name="create" value="Create" class="btn btn-success btn-md" id="cb">
               </div>
             </form>
           </div>

@@ -8,9 +8,11 @@
 <title>Bootstrap 101 Template</title>
 
 <!-- Bootstrap -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
-<link href="css/bootstrap-datepicker3.standalone.min.css" rel="stylesheet">
-<link rel="stylesheet" href="css/extend.css">
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="/css/extend.css">
+<!-- Datepicker -->
+<link rel="stylesheet" href="/css/bootstrap-datepicker3.standalone.css" />
+
 
 
 
@@ -43,11 +45,10 @@
               <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
               <input type="text" name="name" value="name" class="form-control">
             </div>
-            <div class="input-group date" data-provide="datepicker" id="ig">
-              <div class="input-group-addon">
-                <span class="glyphicon glyphicon-th"></span>
-              </div>
-              <input type="text" class="form-control">
+
+            <div class="input-group date" data-provide="datepicker" id="ig" data-date="12/03/2012">
+              <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+              <input type="text" class="form-control" name="date" readonly>
             </div>
             <div class="input-group" id="ig">
               <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
@@ -73,16 +74,28 @@
   </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
-<script src="js/bootstrap-datepicker.min.js"></script>
-<script src="locals/bootstrap-datepicker.de.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/bootstrap-datepicker.js"></script>
+
+
 <script type="text/javascript">
-         $(function () {
-             $('.input-group date').datetimepicker();
-         });
-     </script>
+
+            // When the document is ready
+            $(document).ready(function () {
+
+                $('.input-group.date').datepicker({
+                  autoclose: true,
+                  format: "dd/mm/yyyy",
+                  todayBtn: true,
+                });
+                $('.input-group.date').datepicker("setDate",new Date());
+
+            });
+        </script>
+
+
 </script>
 </body>
 </html>

@@ -16,8 +16,25 @@ module.exports = function(app, passport) {
 		}).sort({'local.date': 1});
 	});
 
+	app.get('/test', isLoggedIn,function (req,res) {
+		//Get All Tasks from the User
+		var Task = require('../models/task');
+		Task.find({'local.user':req.user.local.email},function(err,task){
+			if(err){
+				console.log(err);
+			}
+			if(!task){
+				console.log('NO TAKS');
+			}
+			console.log(task);
+			//Render the index with all tasks
+			//res.send(tasktosend);
+			res.end(JSON.stringify(task));
+		}).sort({'local.date': 1});
+	});
+
 	//Render Task-Render-Site
-	app.get('/task', isLoggedIn, function(req,res){
+	app.get('/addtask', isLoggedIn, function(req,res){
 		res.render('create', {user: req.user.local.email});
 	});
 

@@ -16,7 +16,11 @@ module.exports = function(app, passport) {
 		}).sort({'local.date': 1});
 	});
 
-	app.get('/test', isLoggedIn,function (req,res) {
+	app.get('/test', isLoggedIn,function(req,res){
+		res.render('ajax');
+	});
+
+	app.get('/task', isLoggedIn,function (req,res) {
 		//Get All Tasks from the User
 		var Task = require('../models/task');
 		Task.find({'local.user':req.user.local.email},function(err,task){

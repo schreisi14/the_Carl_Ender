@@ -18,7 +18,7 @@ module.exports = function(app, passport) {
 
 	//Render Task-Render-Site
 	app.get('/task', isLoggedIn, function(req,res){
-		res.render('create');
+		res.render('create', {user: req.user.local.email});
 	});
 
 	//Saves Task

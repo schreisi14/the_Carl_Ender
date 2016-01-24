@@ -37,10 +37,10 @@
 * Helmuth Weithaler
 
 #TODO
+- Modify SignUp -> Name
+###TODO?
 - Modify Dynamic Content (not each Field is filled)
 - Modify Dynmic Content (sort)
 - Modify Task-Schema
 - Modify Task-Schema-Methods (post->/create;get->/content)
 - Modify create.hbs
-- Modify SignUp -> Name
-- Design-Stuff (Logout Button? -> atm: profile-button)

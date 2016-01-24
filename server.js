@@ -33,8 +33,13 @@ app.use(passport.session());            //Starts a passport-session
 app.use(flash());
 
 //Set View Engine / View Render
-app.engine('.hbs', exphbs({extname: '.hbs'}));  //Register Handlebars as Renderengine
+var hbs = exphbs.create({
+  extname: '.hbs',
+  helpers: {'dataFormat': function(date){return date.toDateString();}},
+});
+app.engine('.hbs', hbs.engine);  //Register Handlebars as Renderengine
 app.set('view engine', '.hbs');                 //.hbs Files in the views folger are now rendered with Handlebars
+
 
 //ROUTES
 app.use(express.static(__dirname + '/public')); //Serves every static file in the public folder

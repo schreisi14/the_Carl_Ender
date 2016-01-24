@@ -12,7 +12,7 @@ module.exports = function(app, passport) {
 				console.log('NO TAKS');
 			}
 			res.render('index', {layout: false, task: task, user: req.user.local.email});
-		});
+		}).sort({'local.date': 1});
 	});
 
 	//Render Task-Render-Site

@@ -22,11 +22,6 @@ module.exports = function(app, passport) {
 
 	//Saves Task
 	app.post('/task',isLoggedIn, function(req,res){
-		console.log(req.body);
-		console.log(req.user.local.email);
-		console.log(req.body.name);
-		console.log(req.body.place);
-		console.log(req.body.text);
 		var Task = require('../models/task');
 		//Check if Task is already insert
 		Task.findOne({'local.user':req.user.email, 'local.name':req.body.name},function(err,task){

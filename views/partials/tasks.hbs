@@ -1,18 +1,26 @@
-<div id="container">
-<div id="appt">
-	<h1>{{local.name}}</h1>
-	<h2>21.01.2016 - 17:00</h2>
-	<h2>{{local.place}}</h2>
-	<p>
-		{{local.text}}
-	</p>
-</div>
-	<div id="accdec">
-		Zusagen: <br />
-		10
-	</div>
-	<div id="accdec">
-		Absagen: <br />
-		3
+<div class="col-md-4">
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{local.name}}</h3>
+		</div>
+		<div class="panel-body">
+			<ul class="list-group">
+				<li class="list-group-item">21.01.2016 - 17:00</li>
+				<li class="list-group-item">{{local.place}}</li>
+			</ul>
+			<p>
+				{{local.text}}
+			</p>
+		</div>
+		<div id="panel">
+			<div class="panel-footer text-right">
+				<span>
+					Zusagen: 10
+				</span>
+				<span>
+					Absagen: 3
+				</span>
+			</div>
+		</div>
 	</div>
 </div>

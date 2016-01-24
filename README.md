@@ -38,6 +38,8 @@
 
 #TODO
 - Modify SignUp -> Name
+- TimePicker
+- Hidden Menubar @ small ScreenSize
 ###TODO?
 - Modify Dynamic Content (not each Field is filled)
 - Modify Dynmic Content (sort)

@@ -11,6 +11,7 @@ module.exports = function(app, passport) {
 			if(!task){
 				console.log('NO TAKS');
 			}
+			//Render the index with all tasks
 			res.render('index', {layout: false, task: task, user: req.user.local.email});
 		}).sort({'local.date': 1});
 	});
@@ -22,12 +23,14 @@ module.exports = function(app, passport) {
 
 	//Saves Task
 	app.post('/task',isLoggedIn, function(req,res){
+		//Debug
 		console.log(req.user.local.email);
 		console.log(req.body.name);
 		console.log(req.body.date);
 		console.log(req.body.time);
 		console.log( req.body.place);
 		console.log(req.body.text);
+
 		var Task = require('../models/task');
 		//Check if Task is already insert
 		Task.findOne({'local.user':req.user.email, 'local.name':req.body.name},function(err,task){
@@ -41,15 +44,16 @@ module.exports = function(app, passport) {
 				//Sets its params
 				newTask.local.user = req.user.local.email;
 				newTask.local.name = req.body.name;
-
+				//Makes sure Date is not empty
 				if(req.body.date===""){
 					req.body.date = Date.now();
 				}
 				newTask.local.date = req.body.date;
-
+				//Makes sure Time is not empty
 				if(req.body.time===""){
 					req.body.time = new Date().toLocaleTimeString();
 				}
+				//Debug
 				console.log("Test: " + req.body.time);
 				newTask.local.time = req.body.time;
 				newTask.local.place = req.body.place;
@@ -59,7 +63,6 @@ module.exports = function(app, passport) {
 				newTask.save(function(err) {
 					if (err){
 						console.log('Error' + err);
-						throw err;
 					}
 					//Redirect to the content page
 					res.redirect('/content');

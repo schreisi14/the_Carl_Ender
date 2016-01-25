@@ -42,6 +42,5 @@
 - use of token?
 - user input validation
 - TimePicker
-- Hidden Menubar @ small ScreenSize
 - Update Profile-Page
 - Comments :)

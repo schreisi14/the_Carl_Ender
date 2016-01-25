@@ -10,7 +10,6 @@
 
 		<div class="panel-body">
 			<ul class="list-group">
-				<li class="list-group-item">{{dataFormat local.date}} - {{local.time}}</li>
 				<li class="list-group-item">{{local.place}}</li>
 			</ul>
 
@@ -22,10 +21,7 @@
 		<div id="panel">
 			<div class="panel-footer text-right">
 				<span>
-					Zusagen: 10
-				</span>
-				<span>
-					Absagen: 3
+					{{dataFormat local.date}} - {{local.time}}
 				</span>
 			</div>
 		</div>

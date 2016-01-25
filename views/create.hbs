@@ -39,7 +39,7 @@
           <form class="form-horizontal" action="/task" method="post" id="createtask">
             <div class="input-group" id="ig">
               <span class="input-group-addon"><i class="glyphicon glyphicon-tag"></i></span>
-              <input type="text" name="name" value="name" class="form-control">
+              <input type="text" name="name" value="" placeholder="Task-Name" class="form-control" id="ip">
             </div>
 
             <div class="input-group date" data-provide="datepicker" id="ig" data-date="12/03/2012">
@@ -48,15 +48,15 @@
             </div>
             <div class="input-group" id="ig">
               <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
-              <input type="time" name="time" value="time" class="form-control">
+              <input type="time" name="time" value="" placeholder="00:00" class="form-control">
             </div>
             <div class="input-group" id="ig">
               <span class="input-group-addon"><i class="glyphicon glyphicon-map-marker"></i></span>
-              <input type="text" name="place" value="place" class="form-control">
+              <input type="text" name="place" value="" placeholder="Location" class="form-control">
             </div>
             <div class="input-group" id="igt">
               <span class="input-group-addon"><i class="glyphicon glyphicon-align-justify"></i></span>
-              <textarea name="text" class="form-control" rows="4" form="createtask">Your Text</textarea>
+              <textarea name="text" class="form-control" rows="4" form="createtask" placeholder="Your Text"></textarea>
             </div>
             <div class="input-group pull-right">
               <input type="button" name="cancel" value="Cancel" class="btn btn-danger btn-md" id="cb">
@@ -89,7 +89,7 @@
                 $('.input-group.date').datepicker("setDate",new Date()); //Set the default Date to today
 
             });
-        </script>
+</script>
 
 
 </script>

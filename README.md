@@ -1,4 +1,4 @@
-# the_Carl_Ender v.0.0.2
+# the_Carl_Ender v.0.0.3
 - Project for DynWeb-ITM14-FHJ
 - ALPHA!!
 - Calender-Web-App to sync Events between multiple Users
@@ -39,8 +39,8 @@
 #TODO
 - Update Method
 - Update Unittests
-- use of token?
 - user input validation
 - TimePicker
 - Update Profile-Page
 - Comments :)
+- addform -> add required to the input fields

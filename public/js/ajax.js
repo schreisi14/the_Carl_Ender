@@ -1,7 +1,11 @@
-function getText(taskid){
+function getTaskInfo(taskid){
+	//IDs
+	var textid = 'tasktext' + taskid;
+	var locationid = 'location' + taskid;
+	//Get Elements
+	var locationtofill = document.getElementById(locationid);
+	var texttofill = document.getElementById(textid);
 
-	var id = 'collapse' + taskid;
-	var texttofill = document.getElementById(id);
 	var xhttp = new XMLHttpRequest();
 	xhttp.open("GET", "/getonetask?taskid=" + taskid, true);
 	xhttp.onreadystatechange = function(){
@@ -9,6 +13,7 @@ function getText(taskid){
 			var text = JSON.parse(xhttp.responseText);
 			console.log("READY at getText");
 			texttofill.innerHTML = text.local.text;
+			locationtofill.innerHTML = 'Location: ' + text.local.place;
 		}
 	};
 		xhttp.send();

@@ -35,8 +35,9 @@ app.use(flash());
 //Create View Render + set a Helper for Formating Dates
 var hbs = exphbs.create({
   extname: '.hbs',
-  helpers: {'dataFormat': function(date){return date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear();}},
+  helpers: {'dataFormat': function(date){return date.toLocaleDateString()}},
 });
+// date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear();
 //Set View Engine / View Render
 app.engine('.hbs', hbs.engine);  //Register Handlebars as Renderengine
 app.set('view engine', '.hbs');                 //.hbs Files in the views folger are now rendered with Handlebars

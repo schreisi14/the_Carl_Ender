@@ -2,67 +2,57 @@ var sec = require('./securityfunc');
 
 module.exports = function(app, passport){
 
-	app.get('/task', sec.isLoggedIn,function (req,res) {
+	app.get('/alltasks', sec.isLoggedIn,function (req,res) {
 		//Get All Tasks from the User
 		var Task = require('../models/task');
 		Task.find({'local.user':req.user.local.email},function(err,task){
 			if(err){
-				console.log(err);
+				console.log("ERROR::TASK::GET::" + err);
 			}
 			if(!task){
-				console.log('NO TAKS');
+				console.log('NO TASK @ TASK');
 			}
-			console.log(task);
-			//Render the index with all tasks
-			//res.send(tasktosend);
 			res.end(JSON.stringify(task));
 		}).sort({'local.date': 1});
 	});
 
 	app.delete('/task', sec.isLoggedIn,function (req,res) {
-		//Get All Tasks from the User
+		//Deletes One Task from the User
 		var Task = require('../models/task');
 		Task.remove({'_id':req.query.taskid},function(err,msg){
-			console.log("DELETE");
 			if(err){
-				console.log(err);
+				console.log("ERROR::TASK::DELETE::"+err);
 			}
-			console.log(msg);
-			//Render the index with all tasks
-			//res.send(tasktosend);
 			res.end();
 		});
 	});
 
 	app.get('/getonetask', sec.isLoggedIn,function (req,res) {
-		//Get All Tasks from the User
 		var Task = require('../models/task');
-		console.log('TAKS ID: ' + req.query.taskid );
+		//Get One Task from the User
 		Task.findOne({'_id':req.query.taskid},function(err,task){
 			if(err){
-				console.log(err);
+				console.log("ERROR::TAKS::GET"+err);
 			}
 			if(!task){
-				console.log('NO TAKS');
+				console.log('NO TASK');
 			}
-			console.log(task);
-			//Render the index with all tasks
-			//res.send(tasktosend);
 			res.end(JSON.stringify(task));
 		});
 	});
 
-	//Render Task-Render-Site
+	//Render addTask-Site
 	app.get('/addtask', sec.isLoggedIn, function(req,res){
 		console.log(req.user);
 		if (req.user.local.token==='0') {
-			res.render('create', {user: req.user});
+			res.render('addtask', {title: 'Add Task', user: req.user});
 		} else {
-			res.render('create', {user: req.user, error: 'Please Confirm your Account'});
+			req.flash('error','Please Confirm your Account');
+			res.render('addtask', {title: 'Add Task', user: req.user, error: req.flash('error'), info: req.flash('info')});
 		}
 	});
 
-	//Saves Task
+	//Saves One Task from the User
 	app.post('/task', sec.isLoggedIn, function(req,res){
 		//Debug
 		console.log(req.user.local.email);
@@ -73,12 +63,11 @@ module.exports = function(app, passport){
 		console.log(req.body.text);
 
 		var Task = require('../models/task');
-		//Check if Task is already insert
+		//Check if Task is already inserted
 		Task.findOne({'local.user':req.user.email, 'local.name':req.body.name},function(err,task){
 			if(err){
-				res.end("Error reading your tasks");
+				console.log("ERROR::TASK::POST:" + err);
 			}
-			console.log("Debug task " + task);
 			//If task doesn't exist
 			if(!task){
 				//Create new Task
@@ -99,25 +88,27 @@ module.exports = function(app, passport){
 				if(req.body.time===""){
 					req.body.time = new Date().toLocaleTimeString();
 				}
-				//Debug
-				console.log("Test: " + req.body.time);
 				newTask.local.time = req.body.time;
+				//Make sure Place is not empty
 				if(req.body.place===""){
 					req.body.place = "EVERYWHERE";
 				}
 				newTask.local.place = req.body.place;
+
 				newTask.local.text = req.body.text;
 
 				//Saves the new Task
 				newTask.save(function(err) {
 					if (err){
-						console.log('Error' + err);
+						req.flash('error','Opps! Something went wrong');
+						console.log('ERROR:TASK::POST' + err);
 					}
 					//Redirect to the content page
 					res.redirect('/content');
 				});
 			} else {
-				res.redirect('/content');
+				req.flash('error','Opps! Something went wrong');
+				res.redirect('/addtask');
 			}
 	});
 });

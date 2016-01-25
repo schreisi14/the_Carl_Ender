@@ -37,12 +37,11 @@
 * Helmuth Weithaler
 
 #TODO
-- Modify SignUp -> Name
+- Update Method
+- Update Unittests
+- use of token?
+- user input validation
 - TimePicker
 - Hidden Menubar @ small ScreenSize
-###TODO?
-- Modify Dynamic Content (not each Field is filled)
-- Modify Dynmic Content (sort)
-- Modify Task-Schema
-- Modify Task-Schema-Methods (post->/create;get->/content)
-- Modify create.hbs
+- Update Profile-Page
+- Comments :)

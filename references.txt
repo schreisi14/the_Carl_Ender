@@ -3,5 +3,7 @@ Code copied/modified from:
 http://expressjs.com/en/4x/api.html
 http://passportjs.org/docs
 https://scotch.io/tutorials/easy-node-authentication-setup-and-local
+http://getbootstrap.com
+https://github.com/eternicode/bootstrap-datepicker
 
 FHJ - WS2015 - dynWeb - Code aus Übungen

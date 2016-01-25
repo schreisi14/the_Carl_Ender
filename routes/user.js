@@ -1,6 +1,7 @@
 var sec = require('./securityfunc');
 
 module.exports = function(app, passport){
+	
 	app.get('/user', sec.isLoggedIn, function(req,res){
 				res.render('profile',{user: req.user});
 	});

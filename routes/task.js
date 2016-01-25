@@ -54,7 +54,12 @@ module.exports = function(app, passport){
 
 	//Render Task-Render-Site
 	app.get('/addtask', sec.isLoggedIn, function(req,res){
-		res.render('create', {user: req.user});
+		console.log(req.user);
+		if (req.user.local.token==='0') {
+			res.render('create', {user: req.user});
+		} else {
+			res.render('create', {user: req.user, error: 'Please Confirm your Account'});
+		}
 	});
 
 	//Saves Task

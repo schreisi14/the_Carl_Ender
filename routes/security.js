@@ -59,5 +59,20 @@ app.get('/verify', function(req, res){
 	});
 });
 
+app.get('/sendtoken', sec.isLoggedIn, function(req,res){
+	var User = require('../models/user');
+
+	User.findOne({'local.email' : req.user.local.email}, function(err, user){
+		if(err){
+			res.end("User not found");
+		}
+		if(user){
+			//Console.log the Activation link again
+			console.log(req.protocol + '://' + req.get('host') + '/verify?id=' + user.local.token + '&email=' + user.local.email);
+		}
+	});
+
+});
+
 
 };

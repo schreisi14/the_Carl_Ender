@@ -6,7 +6,6 @@ module.exports = function(app, passport){
 	app.get('/content', sec.isLoggedIn, function (req,res) {
 		//Get All Tasks from the User
 		var Task = require('../models/task');
-		console.log("TESTLOL" + req.user.local.password);
 		Task.find({'local.user':req.user.local.email},function(err,task){
 			if(err){
 				console.log(err);

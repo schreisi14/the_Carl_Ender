@@ -7,7 +7,7 @@ var app = express();                                        //Init Express
 var passport = require('passport');                         //Manages auth
 var flash = require('connect-flash');                       //Is required by Passport -> handles flash-messages
 var bodyParser = require('body-parser');                    //Is required by Passport -> parses POST-Body
-var cookieParser = require('cookie-parser');                //Parse Cookie Header and populate req.cookies with an object keyed by the cookie names
+//var cookieParser = require('cookie-parser');                //Parse Cookie Header and populate req.cookies with an object keyed by the cookie names
 var exphbs  = require('express-handlebars');                //View Engine Handlebars
 var mongoose = require('mongoose');                         //DB-Handler
 
@@ -19,7 +19,7 @@ mongoose.connect(conf.url);           //Loads the URL from the DB from the Confi
 require('./passport/ppconf.js')(passport); //Loads the configuration for Passport
 
 //MiddleWare -> Can execute any code, make changes to the req/resp, end the req,res cycle, call next middleware
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(bodyParser());
 app.use(require('express-session')({    //Is required by Passport -> creates & sets a Session
     name: 'carlEnderSessionId',         //Name of the Session-Cookie

@@ -40,7 +40,5 @@
 - Update Method
 - Update Unittests
 - user input validation
-- TimePicker
-- Update Profile-Page
 - Comments :)
 - addform -> add required to the input fields

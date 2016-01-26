@@ -13,7 +13,7 @@ module.exports = function(app, passport){
 				console.log('NO TASK @ TASK');
 			}
 			res.end(JSON.stringify(task));
-		}).sort({'local.date': 1});
+		}).sort({'local.date': -1});
 	});
 
 	app.delete('/task', sec.isLoggedIn,function (req,res) {

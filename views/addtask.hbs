@@ -39,6 +39,7 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/js/bootstrap.min.js"></script>
 <script src="/js/bootstrap-datepicker.js"></script>
+<script src="/js/bootstrap-clockpicker.min.js"></script>
 
 
 <script type="text/javascript">
@@ -52,8 +53,12 @@
                   todayBtn: true, //adds a TodayBtn
                   todayHighlight: true,
                 });
-                $('.input-group.date').datepicker("setDate",new Date()); //Set the default Date to today
+                $('.input-group.date').datetpicker("setDate",new Date()); //Set the default Date to today
 
+                var input = $('#input-a');
+                input.clockpicker({
+                  autoclose: true
+                });
             });
 </script>
 

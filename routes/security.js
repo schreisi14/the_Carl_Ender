@@ -18,7 +18,7 @@ module.exports = function(app, passport){
 //Route to Logout-process -> back to login page
 app.get('/logout',function(req,res){
 	req.logout();
-	req.flash('info','Succesfully logged out')
+	req.flash('info','Succesfully logged out');
 	res.redirect('/');
 });
 

@@ -27,7 +27,7 @@ module.exports = function(app, passport){
 		});
 	});
 
-	app.get('/getonetask', sec.isLoggedIn,function (req,res) {
+	app.get('/onetask', sec.isLoggedIn,function (req,res) {
 		var Task = require('../models/task');
 		//Get One Task from the User
 		Task.findOne({'_id':req.query.taskid},function(err,task){
@@ -35,7 +35,7 @@ module.exports = function(app, passport){
 				console.log("ERROR::TAKS::GET"+err);
 			}
 			if(!task){
-				console.log('NO TASK');
+				console.log('NO TASK @ ONE TASK');
 			}
 			res.end(JSON.stringify(task));
 		});

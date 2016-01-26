@@ -35,7 +35,7 @@ app.use(flash());
 //Create View Render + set a Helper for Formating Dates
 var hbs = exphbs.create({
   extname: '.hbs',
-  helpers: {'dataFormat': function(date){return date.toLocaleDateString()}},
+  helpers: {'dataFormat': function(date){return date.toLocaleDateString();}},
 });
 // date.getDate() + "." + (date.getMonth()+1) + "." + date.getFullYear();
 //Set View Engine / View Render

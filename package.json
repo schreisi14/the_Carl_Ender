@@ -1,6 +1,6 @@
 {
   "name": "the_carl_ender",
-  "version": "1.0.0",
+  "version": "0.0.3",
   "description": "Carl-Ender Web-Version",
   "main": "server.js",
   "scripts": {

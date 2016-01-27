@@ -27,5 +27,24 @@
 				<a href="/sendtoken" class="btn btn-md btn-primary btn-block btn-signin">Verify Account</a>
 		</div>
 
+		<!-- Delete User -->
+		<div class="panel panel-info" id="pi">
+			<div class="panel-heading">
+				<h1 class="panel-title">Delete Account</h1>
+			</div>
+			<div class="panel-body">
+				<div class="panel">
+					Please enter your password
+				</div>
+				<form action="/deleteuser" method="post" class="form-horizontal">
+					<div class="input-group" id="ig">
+						<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+						<input type="password" name="password" placeholder="password" class="form-control" required/>
+					</div>
+					<input type="submit" value="Delete" class="btn btn-md btn-primary btn-block btn-signin"/>
+				</div>
+			</form>
+
+
 </div>
 {{/if}}

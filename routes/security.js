@@ -85,5 +85,4 @@ app.get('/sendtoken', sec.isLoggedIn, function(req,res){
 
 });
 
-
 };

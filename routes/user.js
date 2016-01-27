@@ -25,4 +25,30 @@ module.exports = function(app, passport){
 			}
 		});
 	});
+
+	app.post('/deleteuser', sec.isLoggedIn, function(req,res){
+
+		var User = require('../models/user');
+		User.findOne({'local.email': req.user.local.email},function(err,user){
+			if(err){
+				console.log("ERROR::USER::DELETE" + err);
+			}
+
+			if(!user.validPassword(req.body.password)){
+				console.log("Wrong Password");
+				req.flash('error','Wrong password');
+				res.redirect('/profile');
+
+			} else {
+
+			User.remove({'local.email': req.user.local.email},function(err,msg){
+				if (err) {
+					console.log("ERROR::USER::DELETE::" + err);
+				}
+				req.flash('info','You are free now');
+				res.redirect('/profile');
+			});
+		}
+		});
+		});
 };

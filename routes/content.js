@@ -17,7 +17,7 @@ module.exports = function(app, passport){
 			}
 			//Render the index with all tasks
 			res.render('index', {task: task, user: req.user, error: req.flash('error'), info: req.flash('info')});
-		}).sort({'local.date': -1});
+		}).sort({'local.date': 1});
 	});
 
 
